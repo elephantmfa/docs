@@ -21,7 +21,22 @@
             {% endif %}
             <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
             <p>{{ site.description | default: site.github.project_tagline }}</p>
+            
+            <a  href="#main-menu" 
+                class="menu-toggle"
+                id="main-menu-toggle"
+                aria-label="Open main menu">
+                <span class="sr-only">Close main menu</span>
+                <span aria-hidden="true">☰</span>
+            </a>
             <nav>
+                <a  href="#main-menu-toggle"
+                    class="menu-close"
+                    id="main-menu-close"
+                    aria-label="Close main menu">
+                    <span class="sr-only">Close main menu</span>
+                    <span aria-hidden="true">X</span>
+                </a>
                 <ul>
                     <li><a href="{{ "/" | absolute_url }}">Home</a></li>
                     {% for section in site.sections %}
@@ -36,6 +51,11 @@
                     {% endfor %}
                 </ul>
             </nav>
+            <a  href="#main-menu-toggle"
+                class="backdrop"
+                tabindex="-1"
+                aria-hidden="true"
+                hidden></a>
         </header>
         <section>
 
