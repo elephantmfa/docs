@@ -6,7 +6,7 @@
 </p>
 
 ## About Elephant Mail Filtering Application (MFA)
----
+
 
 ElephantMFA is a framework very tightly based on [Laravel](https://laravel.com), however it is not used for HTTP requests, but SMTP requests.
 In it's current state, it is meant to be used as a Content filter for the likes of [Postfix](http://www.postfix.org/). It is designed to be a highly customizable mail filter.
