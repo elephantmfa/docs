@@ -1,6 +1,8 @@
 theme: jekyll-theme-minimal
 title: ElephantMFA
 description: The documentation for ElephantMFA
+logo: assets/img/logo.svg
+show_downloads: false
 sass:
   style: compact # possible values: nested expanded compact compressed
   sass_dir: _sass
