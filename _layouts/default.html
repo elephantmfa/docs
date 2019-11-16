@@ -30,7 +30,7 @@
                         <span>{{ section.title }}</span>
                         <ul>
                             {% for page in section.pages %}
-                            <li><a href="{{ page.url }}.html">{{ page.title }}</a></li>
+                            <li><a href="/{{ section.prefix }}/{{ page.url }}.html">{{ page.title }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>

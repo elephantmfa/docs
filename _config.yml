@@ -7,10 +7,11 @@ sass:
   sass_dir: _sass
 sections:
   - title: Filtering
+    prefix: filtering
     pages:
       - title: Filters
-        url: /filtering/filters
+        url: filters
       - title: SpamAssassin
-        url: /filtering/spamassassin
+        url: spamassassin
       - title: ClamAV
-        url: /filtering/clamav
+        url: clamav
