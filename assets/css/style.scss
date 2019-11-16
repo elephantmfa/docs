@@ -15,3 +15,36 @@ header>img {
     width: 150px;
     height: 150px;
 }
+
+code.language-plaintext {
+    color: #b58eba;
+}
+
+h2::before {
+    content: "#";
+    color: #b58eba;
+    font-weight: 100;
+    margin-left: -1em;
+    margin-right: .5em;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+li>a {
+    margin-bottom: 5px;
+}
+
+ul>li::before {
+    content: "=>";
+    color: #b58eba;
+    font-weight: 100;
+    margin-left: -1.5em;
+    margin-right: .5em;
+}
