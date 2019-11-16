@@ -1,18 +1,6 @@
 @import "fonts";
 @import "rouge-github";
 
-/* Screen reader only */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
-
 body {
     background-color: #fff;
     padding:50px;
@@ -20,11 +8,19 @@ body {
     font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:#727272;
     font-weight:400;
+    @media (prefers-color-scheme: dark) {
+        background: #424;
+        color: #ccc;
+    }
+
 }
 
 h1, h2, h3, h4, h5, h6 {
     color:#222;
-    margin:0 0 20px;
+    margin: 0 0 20px;
+    @media (prefers-color-scheme: dark) {
+        color: #ccc;
+    }
 }
 
 p, ul, ol, table, pre, dl {
@@ -136,6 +132,10 @@ section {
     background: #fdf8ffcc;
     padding: 3em;
     border: 1px solid #b58eba;
+
+    @media (prefers-color-scheme: dark) {
+        background: #fdf8ff17;
+    }
 }
 
 small {
