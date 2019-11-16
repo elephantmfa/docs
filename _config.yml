@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 title: ElephantMFA
 description: The documentation for ElephantMFA
 sass:
