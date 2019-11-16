@@ -1,10 +1,17 @@
 ---
 ---
 
+@import "{{ site.theme }}";
+
 footer>p>small {
     display: none;
 }
 
 header>p.view {
     display: none;
+}
+
+header>img {
+    width: 150px;
+    height: 150px;
 }
