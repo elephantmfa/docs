@@ -1,3 +1,6 @@
 theme: jekyll-theme-cayman
 title: ElephantMFA
 description: The documentation for ElephantMFA
+sass:
+  style: compact # possible values: nested expanded compact compressed
+  sass_dir: _sass
