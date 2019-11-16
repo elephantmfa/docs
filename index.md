@@ -8,11 +8,13 @@ The reason that this was made was because similar mail filters out there all are
 Here comes ElephantMFA, a highly extensible *framework* written in PHP using ReactPHP, to write all of your own filtering code, to have it configured exactly as you need it.
 
 ## Table of Contents
+> **Note:** It's an important thing to note, that a lot of documentation will defer to or reference Laravel's excellent documentation as ElephantMFA utilizes their components.
 
 * [Home](README.md)
-* [Filters](filters.md)
-
-> **Note:** It's an important thing to note, that a lot of documentation will defer to or reference Laravel's excellent documentation as ElephantMFA utilizes their components.
+* Filtering
+  * [Filters](filtering/filters.md)
+  * [SpamAssassin](filtering/spamassassin.md)
+  * [ClamAV](filtering/clamav.md)
 
 ## Contributing
 

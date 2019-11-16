@@ -9,4 +9,8 @@ sections:
   - title: Filtering
     pages:
       - title: Filters
-        url: filters
+        url: filtering/filters
+      - title: SpamAssassin
+        url: filtering/spamassassin
+      - title: ClamAV
+        url: filtering/clamav

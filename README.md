@@ -19,7 +19,10 @@ Here comes ElephantMFA, a highly extensible *framework* written in PHP using Rea
 > **Note:** It's an important thing to note, that a lot of documentation will defer to or reference Laravel's excellent documentation as ElephantMFA utilizes their components.
 
 * [Home](README.md)
-* [Filters](filters.md)
+* Filtering
+  * [Filters](filtering/filters.md)
+  * [SpamAssassin](filtering/spamassassin.md)
+  * [ClamAV](filtering/clamav.md)
 
 ## Contributing
 
