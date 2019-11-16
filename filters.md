@@ -1,8 +1,3 @@
----
-title: Filters
----
-[< Home](README.md)
-
 # Filters
 
 ## Table of Contents
