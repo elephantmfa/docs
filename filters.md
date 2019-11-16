@@ -273,3 +273,33 @@ You can also pass a 2XX code to the `DropException`. If done, it changes the beh
 
 <a name="filter-dependency-injection"></a>
 ## Dependency Injection & Filters
+
+The Elephant [Service Container](https://laravel.com/docs/6.x/container) is used to resolve all of the filters. As a result, you may type-hint any dependencies your filter may need in it's constructor. The declared dependencies will automatically be resolved and injected into the controller instance:
+
+```php
+<?php
+
+namespace App\Mail\Filters\Data;
+
+use Elephant\Contracts\Filter;
+use Elephant\Contracts\Mail\Mail;
+use Elephant\Filters\SpamAssassin;
+
+class LogSubject implements Filter
+{
+    protected $sa;
+
+    public function __construct(SpamAssassin $sa)
+    {
+        $this->sa = $sa;
+    }
+
+    public function filter(Mail $email, $next)
+    {
+        // Utilize SpamAssassin here.
+        return $next($email);
+    }
+}
+```
+
+You may also type-hint any [Laravel or Elephant contract](https://laravel.com/docs/6.x/contracts). If the container can resolve it, you can type-hint it. Depending on your application, injecting your dependencies into your controller may provide better testability.
