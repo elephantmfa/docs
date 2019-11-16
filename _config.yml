@@ -6,3 +6,8 @@ show_downloads: false
 sass:
   style: compact # possible values: nested expanded compact compressed
   sass_dir: _sass
+sections:
+  - title: Filtering
+    pages:
+      - title: Filters
+        url: filters
