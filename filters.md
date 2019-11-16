@@ -1,3 +1,6 @@
+---
+title: Filters
+---
 # Filters
 
 ## Table of Contents
