@@ -1,4 +1,10 @@
 ---
 ---
 
+a[href~="github.com"] {
+    display: none;
+}
 
+span.site-footer-credits {
+    display: none;
+}
