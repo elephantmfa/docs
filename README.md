@@ -5,7 +5,7 @@
 <a href="https://packagist.org/packages/elephantmfa/framework"><img alt="License" src="https://poser.pugx.org/elephantmfa/framework/license"></a>
 </p>
 
-## About Elephant Mail Filtering Application (MFA)
+## About Elephant Mail Filtering App (MFA)
 
 
 ElephantMFA is a framework very tightly based on [Laravel](https://laravel.com), however it is not used for HTTP requests, but SMTP requests.
