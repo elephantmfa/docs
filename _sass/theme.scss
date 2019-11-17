@@ -186,6 +186,7 @@ section h1::before, h2::before {
 ul {
     list-style-type: none;
     margin-bottom: 0px;
+    padding-inline-start: 20px;
 }
 
 li {
@@ -202,6 +203,10 @@ ul>li::before {
     font-weight: 100;
     margin-left: -1.5em;
     margin-right: .5em;
+}
+
+.highlight {
+    line-height: 2;
 }
 
 .hamburger-menu-toggle {
