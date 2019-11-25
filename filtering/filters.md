@@ -60,6 +60,7 @@ class LogSubject implements Filter
     public function filter(Mail $email, $next)
     {
         info($email->headers['subject'][0]);
+
         return $next($email);
     }
 }
@@ -162,6 +163,7 @@ public function filter(Mail $email, $next)
     if ($forSomeReasonItsAllowed) {
         return $email;
     }
+
     return $next($email);
 }
 ```
@@ -173,8 +175,10 @@ public function filter(Mail $email, $next)
 {
     if ($forSomeReasonItsAllowed) {
         $email->setFinalDestination('allow');
+
         return $email;
     }
+
     return $next($email);
 }
 ```
@@ -215,6 +219,7 @@ public function filter(Mail $email, $next)
     if ($forSomeReasonMailIsTempBlocked) {
         throw new DeferException('4.0.0 Try again later', 450);
     }
+
     return $next($email);
 }
 ```
@@ -239,6 +244,7 @@ public function filter(Mail $email, $next)
     if ($forSomeReasonMailIsQuarantined) {
         throw new QuarantineException('ok...', 250);
     }
+
     return $next($email);
 }
 ```
@@ -261,6 +267,7 @@ public function filter(Mail $email, $next)
     if ($forSomeReasonMailIsToBeDropped) {
         throw new DropException('Please go away.', 550);
     }
+
     return $next($email);
 }
 ```
@@ -279,24 +286,25 @@ The Elephant [Service Container](https://laravel.com/docs/6.x/container) is used
 ```php
 <?php
 
-namespace App\Mail\Filters\Data;
+namespace App\Mail\Filters\Queued;
 
 use Elephant\Contracts\Filter;
 use Elephant\Contracts\Mail\Mail;
-use Elephant\Filters\SpamAssassin;
+use App\Repositorites\UserRepository;
 
-class LogSubject implements Filter
+class UserFilter implements Filter
 {
-    protected $sa;
+    protected $userRepository;
 
-    public function __construct(SpamAssassin $sa)
+    public function __construct(UserRepository $userRepository)
     {
-        $this->sa = $sa;
+        $this->userRepository = $userRepository;
     }
 
     public function filter(Mail $email, $next)
     {
-        // Utilize SpamAssassin here.
+        // Do something with users.
+
         return $next($email);
     }
 }
