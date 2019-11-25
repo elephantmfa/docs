@@ -36,7 +36,7 @@ use Elephant\Foundation\Application;
 class SpamAssassin implements Filter
 {
     /**
-     * Run a filter against the mail.
+     * Check the mail using SpamAssassin.
      *
      * @param Mail $mail
      * @param callable $next
@@ -44,32 +44,43 @@ class SpamAssassin implements Filter
      */
     public function filter(Mail $email, $next)
     {
+        // Create a new SpamAssassin client.
         $sa = new SpamAssassinClient($email);
+        // Scan, and if failed, report the error.
         if (! $sa->scan()) {
             error("SpamAssassin error: $sa->error");
 
             return $next($email);
         }
+
+        // Get results.
         $results = $sa->getResults();
 
+        // Calculate the total score.
         $totalScore = collect($results['tests'])->map(function ($test) {
             return $test['score'];
         })->sum();
+
+        // Format for the headers.
         $tests = collect($results['tests'])->map(function ($test) {
             return "{$test['name']}={$test['score']}";
         })->implode(',');
 
         $spamStatus = $totalScore > 5 ? 'Yes' : 'No';
 
-        info("X-Spam-Status: $spamStatus score=$totalScore tests=$tests");
-        info("X-SpamChecker-Version: SpamAssassin v{$results['version']}; ElephantMFA v" . Application::VERSION);
+        // Generate headers
+        $xSpamStatusHeader = "$spamStatus score=$totalScore tests=$tests";
+        $xSpamCheckerVersion = "SpamAssassin v{$results['version']}; ElephantMFA v" . Application::VERSION;
 
-        $email->appendHeader('X-Spam-Status', "$spamStatus score=$totalScore tests=$tests");
-        $email->appendHeader(
-            'X-SpamChecker-Version',
-            "SpamAssassin v{$results['version']}; ElephantMFA v" . Application::VERSION
-        );
+        // Log the headers.
+        info("X-Spam-Status: $xSpamStatusHeader");
+        info("X-SpamChecker-Version: $xSpamCheckerVersion");
 
+        // Append the headers.
+        $email->appendHeader('X-Spam-Status', $xSpamStatusHeader);
+        $email->appendHeader('X-SpamChecker-Version', $xSpamCheckerVersion);
+
+        // Quarantine if considered Spam.
         if ($totalScore > 5) {
             throw new QuarantineException();
         }
@@ -83,23 +94,25 @@ class SpamAssassin implements Filter
 
 ### ElephantMFA Configuration
 
-The configuration for integrating SpamAssassin with Elephant resides in `config/scanners.php`.
+The configuration for integrating SpamAssassin with Elephant resides in `config/scanners.php`. 
 
+- `socket`: The socket is the connection to SpamD. It *must* be prefixed with `ipv4://`, `ipv6://` or `unix://` depending on the kind of socket that SpamD is listening on. 
+  - `ipv4://`: Must be formatted as `ipv4://IP:port` format. See the example below.
+  - `ipv6://`: Must be formatted as `ipv6://[IP]:port` format.
+  - `unix://`: Must be formatted as `unix:///path/to/spamd.sock` format.
+- `max_size`: The total bytes sent to SpamAssassin. If the mail is larger, then only the first part of the mail, up to the size listed will be sent. Set to 0 for the entire mail, regardless of size to be sent.
+- `timeout`: The maximum amount of time to wait for SpamAssassin to return a response.
+- `spamd`: The configuration for Elephant to manage the SpamD process.
+  - `manage`: If enabled, Elephant will start and stop SpamD along side it. Additionally log output from SpamD will be fed directly into Elephant's logs.
+  - `parameters`: An array of all of the parameters to pass into the SpamD process.
+
+See the example below:
 ```php
 'spamassassin' => [
-    // Host or path to socket where spamd is running.
-    //   Use ipv4:// for an IPv4 address. Must be IP:port format.
-    //   Use ipv6:// for an IPv6 address. Must be [IP]:port format.
-    //   Use unix:// for a Unix socket.
     'socket' => env('SPAMASSASSIN_PORT', 'ipv4://127.0.0.1:783'),
-    // The total bytes sent to SpamAssassin
     'max_size' => 128 * 1000, // 128 Kb
-    // The timeout until reading from SpamAssassin is given up.
     'timeout' => 60, // seconds
     'spamd' => [
-        // If `manage` is enabled, SpamD will be started with ElephantMFA,
-        //    and will be killed when ElephantMFA is killed. Additionally,
-        //    log output from SpamD will be handled by ElephantMFA.
         'manage' => true,
         'parameters' => [
             '-u ubuntu'
@@ -112,6 +125,9 @@ The configuration for integrating SpamAssassin with Elephant resides in `config/
 
 It is recommended to add the following to your `/etc/mail/spamassassin/local.cf` if you want Spam scores for the tests.
 Since the SpamAssassin module does not report the score reported from SpamAssassin, you will need the scores to be able to calculate if it's spam.
+
 ```
 add_header all Status tests=_TESTSSCORES_ autolearn=_AUTOLEARN_ version=_VERSION_
 ```
+
+Additionally, while it may not be necessary to restart ElephantMFA for PHP file changes, it is a requirement restart SpamD if SpamAssassin configuration changes. Keep this in mind if Elephant is managing the SpamD instance.
