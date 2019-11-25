@@ -20,7 +20,7 @@ To integrate Elephant and SpamAssassin, it is required that [SpamD](https://spam
 
 ### Example
 
-Below is an example integration of a SpamAssassin [filter](filter.html) to spam test, and quarantine messages marked as spam:
+Below is an example integration of a SpamAssassin [filter](filters.html) to spam test, and quarantine messages marked as spam:
 
 ```php
 <?php
