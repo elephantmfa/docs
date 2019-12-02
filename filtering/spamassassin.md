@@ -56,10 +56,8 @@ class SpamAssassin implements Filter
         // Get results.
         $results = $sa->getResults();
 
-        // Calculate the total score.
-        $totalScore = collect($results['tests'])->map(function ($test) {
-            return $test['score'];
-        })->sum();
+        // Get the total score.
+        $totalScore = $results['total_score'];
 
         // Format for the headers.
         $tests = collect($results['tests'])->map(function ($test) {
@@ -72,7 +70,7 @@ class SpamAssassin implements Filter
         $xSpamStatusHeader = "$spamStatus score=$totalScore tests=$tests";
         $xSpamCheckerVersion = "SpamAssassin v{$results['version']}; ElephantMFA v" . Application::VERSION;
 
-        // Log the headers.
+        // Log the headers to be added.
         info("X-Spam-Status: $xSpamStatusHeader");
         info("X-SpamChecker-Version: $xSpamCheckerVersion");
 
@@ -123,8 +121,8 @@ See the example below:
 
 ### SpamAssassin Configuration
 
-It is recommended to add the following to your `/etc/mail/spamassassin/local.cf` if you want Spam scores for the tests.
-Since the SpamAssassin module does not report the score reported from SpamAssassin, you will need the scores to be able to calculate if it's spam.
+It is recommended to add the following to your `/etc/mail/spamassassin/local.cf` if you want spam scores for the tests.
+You will want the scores from individual tests if you plan on adjusting scores or using the tests in different ways than just an aggregate score.
 
 ```
 add_header all Status tests=_TESTSSCORES_ autolearn=_AUTOLEARN_ version=_VERSION_
