@@ -8,13 +8,6 @@
 .HyperSpace-4-hex { color: #F2CA7E; }
 .HyperSpace-5-hex { color: #D9B6A3; }
 
-a {
-    color: #D9B6A3;
-
-    $:hover {
-        color: #F2CA7E;
-    }
-}
 
 body {
     background-color: #fff;
@@ -69,6 +62,14 @@ a small {
 
 a:hover small {
     color:#F2CA7E;
+}
+
+a {
+    color: #D9B6A3;
+
+    &:hover {
+        color: #F2CA7E;
+    }
 }
 
 .wrapper {
