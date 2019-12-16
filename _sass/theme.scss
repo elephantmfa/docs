@@ -16,19 +16,11 @@ body {
     font: 16px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #312559;
     font-weight:400;
-    @media (prefers-color-scheme: dark) {
-        background: #312559;
-        color: #ccc;
-    }
-
 }
 
 h1, h2, h3, h4, h5, h6 {
     color:#222;
     margin: 0 0 20px;
-    @media (prefers-color-scheme: dark) {
-        color: #ccc;
-    }
 }
 
 p, ul, ol, table, pre, dl {
@@ -135,15 +127,12 @@ strong {
 }
 
 section {
+    float:right;
     padding-bottom:50px;
     background: #928FD9;
     padding: 3em;
     border: 1px solid #312559;
     margin-bottom: 50px;
-
-    @media (prefers-color-scheme: dark) {
-        background: #fdf8ff17;
-    }
 }
 
 small {
@@ -215,43 +204,6 @@ ul>li::before {
     margin-right: .5em;
 }
 
-.highlight {
-    line-height: 2;
-}
-
-.hamburger-menu-toggle {
-    display: none;
-    font-size: x-large;
-    position: fixed;
-    right: 25px;
-    top: 25px;
-    background: white;
-    border-radius: 25px;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    box-shadow: 0 0 5px #55035d;
-    line-height: 48px;
-    vertical-align: middle;
-}
-
-#hamburger-menu-toggle {
-    display:none;
-}
-
-.hamburger-menu-toggle::after {
-    content: "☰";
-}
-
-#hamburger-menu-toggle:checked {
-    & ~ .nav {
-        display: block;
-    }
-    & ~ .hamburger-menu-toggle::after {
-        content: "X";
-    }
-}
-
 @media print, screen and (max-width: 960px) {
 
     div.wrapper {
@@ -284,23 +236,7 @@ ul>li::before {
     }
 }
 
-@media print, screen and (max-width: 1550px) {
-
-    .hamburger-menu-toggle {
-        display: inline-block
-    }
-    .nav {
-        display: none;
-        padding-top: 4em;
-        position: fixed;
-        right: 0px;
-        top: 0px;
-        background: #fdfdfd;
-        width: 75%;
-        margin-left: 300px;
-        border-left: 2px solid #d4d4d4;
-        bottom: 0px;
-    }
+@media print, screen and (max-width: 720px) {
 
     body {
         word-wrap:break-word;
