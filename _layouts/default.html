@@ -21,7 +21,6 @@
             {% endif %}
             <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
             <p>{{ site.description | default: site.github.project_tagline }}</p>
-            <input id="hamburger-menu-toggle" name="hamburger-menu-toggle" type="checkbox">
             <nav class="nav">
                 <ul>
                     <li><a href="{{ "/" | absolute_url }}">Home</a></li>
@@ -37,7 +36,6 @@
                     {% endfor %}
                 </ul>
             </nav>
-            <label class="hamburger-menu-toggle" for="hamburger-menu-toggle"></label>
         </header>
         <section>
 
