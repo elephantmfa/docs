@@ -1,15 +1,22 @@
 @import "fonts";
 @import "rouge-github";
 
+/* Color Theme Swatches in Hex */
+.HyperSpace-1-hex { color: #D9A3BC; }
+.HyperSpace-2-hex { color: #312559; }
+.HyperSpace-3-hex { color: #928FD9; }
+.HyperSpace-4-hex { color: #F2CA7E; }
+.HyperSpace-5-hex { color: #D9B6A3; }
+
 body {
     background-color: #fff;
     padding:50px;
     padding-right: 25px;
     font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color:#727272;
+    color: #312559;
     font-weight:400;
     @media (prefers-color-scheme: dark) {
-        background: #424;
+        background: #312559;
         color: #ccc;
     }
 
@@ -35,14 +42,6 @@ h1 {
     font-size:28px;
 }
 
-h2 {
-    color:#393939;
-}
-
-h3, h4, h5, h6 {
-    color:#494949;
-}
-
 a {
     color:#267CB9;
     text-decoration:none;
@@ -55,13 +54,13 @@ a:hover, a:focus {
 
 a small {
     font-size:11px;
-    color:#777;
+    color:#F2CA7E;
     margin-top:-0.3em;
     display:block;
 }
 
 a:hover small {
-    color:#777;
+    color:#F2CA7E;
 }
 
 .wrapper {
@@ -85,7 +84,7 @@ pre {
     padding:8px 15px;
     background: #f8f8f8;
     border-radius:5px;
-    border:1px solid #e5e5e5;
+    border: 1px solid #e5e5e5;
     overflow-x: auto;
 }
 
@@ -129,9 +128,9 @@ section {
     width:500px;
     float:right;
     padding-bottom:50px;
-    background: #fdf8ffcc;
+    background: #928FD9;
     padding: 3em;
-    border: 1px solid #b58eba;
+    border: 1px solid #312559;
     margin-bottom: 50px;
 
     @media (prefers-color-scheme: dark) {
@@ -172,12 +171,12 @@ header>img {
 }
 
 code.language-plaintext {
-    color: #b58eba;
+    color: #F2CA7E;
 }
 
 section h1::before, h2::before {
     content: "#";
-    color: #b58eba;
+    color: #F2CA7E;
     font-weight: 100;
     margin-left: -1em;
     margin-right: .5em;
@@ -199,7 +198,7 @@ li>ul {
 
 ul>li::before {
     content: "=>";
-    color: #b58eba;
+    color: #F2CA7E;
     font-weight: 100;
     margin-left: -1.5em;
     margin-right: .5em;
