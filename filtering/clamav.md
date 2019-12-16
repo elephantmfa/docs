@@ -145,7 +145,7 @@ See the example below:
 ],
 ```
 
-### Converting to SpamTests
+### Converting to SpamTests
 
 It would be prudent to transform a number of "virus" definitions from ClamAV to
 spam tests or be more lenient with them in some way. The reason for this is,
