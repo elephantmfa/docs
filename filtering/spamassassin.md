@@ -92,17 +92,20 @@ class SpamAssassin implements Filter
 
 ### ElephantMFA Configuration
 
-The configuration for integrating SpamAssassin with Elephant resides in `config/scanners.php`. 
+The configuration for integrating SpamAssassin with Elephant resides in `config/scanners.php`.
 
-- `socket`: The socket is the connection to SpamD. It *must* be prefixed with `ipv4://`, `ipv6://` or `unix://` depending on the kind of socket that SpamD is listening on. 
+- `socket` [string]: The socket is the connection to SpamD. It *must* be prefixed with
+  `ipv4://`, `ipv6://` or `unix://` depending on the kind of socket that SpamD is listening on.
   - `ipv4://`: Must be formatted as `ipv4://IP:port` format. See the example below.
   - `ipv6://`: Must be formatted as `ipv6://[IP]:port` format.
   - `unix://`: Must be formatted as `unix:///path/to/spamd.sock` format.
-- `max_size`: The total bytes sent to SpamAssassin. If the mail is larger, then only the first part of the mail, up to the size listed will be sent. Set to 0 for the entire mail, regardless of size to be sent.
-- `timeout`: The maximum amount of time to wait for SpamAssassin to return a response.
-- `spamd`: The configuration for Elephant to manage the SpamD process.
-  - `manage`: If enabled, Elephant will start and stop SpamD along side it. Additionally log output from SpamD will be fed directly into Elephant's logs.
-  - `parameters`: An array of all of the parameters to pass into the SpamD process.
+- `max_size` [int]: The total bytes sent to SpamAssassin. If the mail is larger,
+  then only the first part of the mail, up to the size listed will be sent.
+  Set to 0 for the entire mail, regardless of size to be sent.
+- `timeout` [int]: The maximum amount of time to wait for SpamAssassin to return a response.
+- `spamd` [array]: The configuration for Elephant to manage the SpamD process.
+  - `manage` [bool]: If enabled, Elephant will start and stop SpamD along side it. Additionally log output from SpamD will be fed directly into Elephant's logs.
+  - `parameters` [array[string]]: An array of all of the parameters to pass into the SpamD process.
 
 See the example below:
 ```php
