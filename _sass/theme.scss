@@ -203,6 +203,11 @@ ul>li::before {
     margin-right: .5em;
 }
 
+span.logo-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
 @media print, screen and (max-width: 960px) {
 
     div.wrapper {
