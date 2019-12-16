@@ -135,8 +135,6 @@ strong {
 }
 
 section {
-    width:1024px;
-    float:right;
     padding-bottom:50px;
     background: #928FD9;
     padding: 3em;
@@ -286,7 +284,7 @@ ul>li::before {
     }
 }
 
-@media print, screen and (max-width: 720px) {
+@media print, screen and (max-width: 1550px) {
 
     .hamburger-menu-toggle {
         display: inline-block
