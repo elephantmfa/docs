@@ -110,7 +110,7 @@ th {
 }
 
 img {
-    max-width:100%;
+    max-width: 100%;
 }
 
 header {
@@ -162,9 +162,9 @@ header>p.view {
     display: none;
 }
 
-header>img {
-    width: 150px;
-    height: 150px;
+header img {
+    width: 100%;
+    max-width: 200px;
 }
 
 code.language-plaintext {
@@ -203,7 +203,7 @@ ul>li::before {
     margin-right: .5em;
 }
 
-span.logo-wrapper {
+.logo-wrapper {
     width: 100%;
     margin: 0 auto;
 }
