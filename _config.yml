@@ -6,6 +6,11 @@ sass:
   style: compact # possible values: nested expanded compact compressed
   sass_dir: _sass
 sections:
+  - title: Getting Started
+    prefix: getting-Started
+    pages:
+      - title: Installation
+      - url: installation
   - title: Filtering
     prefix: filtering
     pages:
@@ -15,3 +20,5 @@ sections:
         url: spamassassin
       - title: ClamAV
         url: clamav
+      - title: Pattern Matching
+        url: pattern-matching
