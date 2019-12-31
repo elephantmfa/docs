@@ -156,9 +156,14 @@
 .highlight .s {
   color: #d14;
 }
-.highlight .n {
-  @media (prefers-color-scheme: dark) {
+
+@media (prefers-color-scheme: dark) {
+  .highlight .n,.highlight.nx {
     color: white;
+  }
+
+  .highlight .s2 {
+    color: #d9a3bc
   }
 }
 .highlight .na {
