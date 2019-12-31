@@ -16,11 +16,20 @@ body {
     font: 16px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #312559;
     font-weight:400;
+
+    @media (prefers-color-scheme: dark) {
+        color: #928fd9;
+        background-color: #000;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
     color:#222;
     margin: 0 0 20px;
+
+    @media (prefers-color-scheme: dark) {
+        color: inherit;
+    }
 }
 
 p, ul, ol, table, pre, dl {
