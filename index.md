@@ -10,21 +10,24 @@ Here comes ElephantMFA, a highly extensible *framework* written in PHP using Rea
 ## Table of Contents
 > **Note:** It's an important thing to note, that a lot of documentation will defer to or reference Laravel's excellent documentation as ElephantMFA utilizes their components.
 
-* [Home](README.md)
-* Getting Started
-  * [Installation](getting-started/installation.md)
-* Filtering
-  * [Filters](filtering/filters.md)
-  * [SpamAssassin](filtering/spamassassin.md)
-  * [ClamAV](filtering/clamav.md)
-  * [Pattern Matching](filtering/pattern-matching.md)
+- [Home](README.md)
+- Getting Started
+  - [Installation](getting-started/installation.md)
+  - [Configuration](getting-started/configuration.md)
+  - [Directory Structure](getting-started/directory-structure.md)
+  - [Deployment](getting-started/deployment.md)
+- The Basics
+  - [Filters](the-basics/filters.md)
+  - [SpamAssassin](the-basics/spamassassin.md)
+  - [ClamAV](the-basics/clamav.md)
+  - [Pattern Matching](the-basics/pattern-matching.md)
 
 ## Contributing
 
 Thank you for considering contributing to the ElephantMFA framework!
 
 ### Current contributors:
- * [Marisa Clardy](https://clardy.eu)
+ - [Marisa Clardy](https://clardy.eu)
 
 ## License
 

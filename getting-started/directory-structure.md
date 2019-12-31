@@ -6,7 +6,6 @@
   - [Server Requirements](#server-requirements)
   - [Installing Elephant](#installing-elephant)
   - [Configuration](#configuration)
-- [Server Configuration](#server-configuration)
 
 ## Installation
 
@@ -15,6 +14,4 @@
 ### Installing Elephant
 
 ### Configuration
-
-## Server Configuration
 

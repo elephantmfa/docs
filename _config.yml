@@ -10,9 +10,15 @@ sections:
     prefix: getting-Started
     pages:
       - title: Installation
-      - url: installation
-  - title: Filtering
-    prefix: filtering
+        url: installation
+      - title: Configuration
+        url: configuration
+      - title: Directory Structure
+        url: directory-structure
+      - title: Deployment
+        url: deployment
+  - title: The Basics
+    prefix: the-basics
     pages:
       - title: Filters
         url: filters
