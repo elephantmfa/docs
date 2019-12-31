@@ -69,6 +69,10 @@
 .highlight .kd {
   color: #000000;
   font-weight: bold;
+
+  @media (prefers-color-scheme: dark) {
+    color: #f2ca7e;
+  }
 }
 .highlight .kn {
   color: #000000;
@@ -93,6 +97,10 @@
 .highlight .k, .highlight .kv {
   color: #000000;
   font-weight: bold;
+
+  @media (prefers-color-scheme: dark) {
+    color: #f2ca7e;
+  }
 }
 .highlight .mf {
   color: #009999;
@@ -216,6 +224,9 @@
 .highlight .o {
   color: #000000;
   font-weight: bold;
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 }
 .highlight .w {
   color: #bbbbbb;
@@ -229,6 +240,7 @@
   background-color: #f8f8f8;
 
   @media (prefers-color-scheme: dark) {
+    color: white;
     background-color: #111;
   }
 }
