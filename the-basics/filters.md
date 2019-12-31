@@ -219,9 +219,9 @@ The defaults for a reject exception are:
 The code and message are what is responded back to the server connecting to
 ElephantMFA.
 
-In a post-queue setup, rejecting a mail will delete the mail, silently. Because
-ElephantMFA has already accepted the mail, it cannot return the error code back
-to the sender.
+> In a post-queue setup, rejecting a mail will delete the mail, silently. Because
+> ElephantMFA has already accepted the mail, it cannot return the error code back
+> to the sender.
 
 ### Defer
 
@@ -250,9 +250,9 @@ The defaults for a reject exception are:
 The code and message are what is responded back to the server connecting to
 ElephantMFA.
 
-In a post-queue setup, deferring a mail will delete the mail, silently. Because
-ElephantMFA has already accepted the mail, it cannot return the error code back
-to the sender.
+> In a post-queue setup, deferring a mail will delete the mail, silently. Because
+> ElephantMFA has already accepted the mail, it cannot return the error code back
+> to the sender.
 
 ### Quarantine
 
