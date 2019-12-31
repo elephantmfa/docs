@@ -84,6 +84,8 @@ blockquote {
     font-style: italic;
     background-color: #31255922;
     margin: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 
     @media (prefers-color-scheme: dark) {
         background-color: #928fd922;
