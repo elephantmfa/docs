@@ -13,7 +13,6 @@ Here comes ElephantMFA, a highly extensible *framework* written in PHP using Rea
 - [Home](README.md)
 - Getting Started
   - [Installation](getting-started/installation.md)
-  - [Configuration](getting-started/configuration.md)
   - [Directory Structure](getting-started/directory-structure.md)
   - [Deployment](getting-started/deployment.md)
 - The Basics

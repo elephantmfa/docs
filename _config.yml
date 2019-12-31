@@ -11,8 +11,6 @@ sections:
     pages:
       - title: Installation
         url: installation
-      - title: Configuration
-        url: configuration
       - title: Directory Structure
         url: directory-structure
       - title: Deployment
