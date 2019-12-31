@@ -188,6 +188,10 @@ code.language-plaintext {
     color: #F2CA7E;
     background: #31255922;
     padding: 1px 5px;
+
+    @media (prefers-color-scheme: dark) {
+        background: #928fd944;
+    }
 }
 
 section h1::before, h2::before {
