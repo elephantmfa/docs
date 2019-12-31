@@ -200,13 +200,13 @@ stop allowing more commands in regards to the email. This would be used if you
 block email addresses, in the `RCPT TO` step, you have a filter that rejects it
 before even getting to the data step, thus preventing the processing required.
 
-To reject, it is as simple as throwing a RejectException:
+To reject, it is as simple as throwing a `Reject`:
 
 ```php
 public function filter(Mail $email, $next)
 {
     if ($forSomeReasonMailIsBlocked) {
-        throw new RejectException('5.0.0 Address not allowed', 550);
+        throw new Reject('5.0.0 Address not allowed', 550);
     }
     return $next($email);
 }
@@ -230,13 +230,13 @@ stop allowing more commands in regards to the email. This would be used to
 implement a gray-listing system, temporarily blocking mail, forcing the sending
 server to try again later (usually after 5 minutes).
 
-To defer, it is as simple as throwing a DeferException:
+To defer, it is as simple as throwing a `Defer`:
 
 ```php
 public function filter(Mail $email, $next)
 {
     if ($forSomeReasonMailIsTempBlocked) {
-        throw new DeferException('4.0.0 Try again later', 450);
+        throw new Defer('4.0.0 Try again later', 450);
     }
 
     return $next($email);
@@ -262,13 +262,13 @@ have no more processing done on it. This is what is commonly used when a mail
 is determined to be Spam, so that it may be verified and released at a later
 date.
 
-To quarantine a mail, it is as simple as throwing the QuarantineException:
+To quarantine a mail, it is as simple as throwing the `Quarantine`:
 
 ```php
 public function filter(Mail $email, $next)
 {
     if ($forSomeReasonMailIsQuarantined) {
-        throw new QuarantineException('ok...', 250);
+        throw new Quarantine('ok...', 250);
     }
 
     return $next($email);
@@ -312,13 +312,13 @@ time. This can be used to prevent spammers who attempt to waste processing power
 by consistently connecting and sending mail to ElephantMFA. For example,
 dropping connections from a specific IP on the connect step.
 
-To drop a connection, it is as simple as throwing a DropException:
+To drop a connection, it is as simple as throwing a `Drop`:
 
 ```php
 public function filter(Mail $email, $next)
 {
     if ($forSomeReasonMailIsToBeDropped) {
-        throw new DropException('Please go away.', 550);
+        throw new Drop('Please go away.', 550);
     }
 
     return $next($email);
@@ -329,7 +329,7 @@ The defaults for a reject exception are:
 - `message`: "Not ok"
 - `code`: 550
 
-You can also pass a 2XX code to the `DropException`. If done, it changes the
+You can also pass a 2XX code to the `Drop`. If done, it changes the
 behaviour of drop altogether. Instead of dropping the connection, it will drop
 the mail. It will allow the mail all the way through (skipping anymore filters)
 and then delete the mail after it has been accepted. This is a good way to trick
