@@ -208,7 +208,7 @@ public function filter(Mail $email, $next)
     if ($forSomeReasonMailIsBlocked) {
         throw new Reject('5.0.0 Address not allowed', 550);
     }
-    
+
     return $next($email);
 }
 ```
@@ -220,7 +220,7 @@ The defaults for a reject exception are:
 The code and message are what is responded back to the server connecting to
 ElephantMFA.
 
-> In a post-queue setup, rejecting a mail will delete the mail, silently. Because
+> **Note:** In a post-queue setup, rejecting a mail will delete the mail, silently. Because
 > ElephantMFA has already accepted the mail, it cannot return the error code back
 > to the sender.
 
@@ -251,7 +251,7 @@ The defaults for a reject exception are:
 The code and message are what is responded back to the server connecting to
 ElephantMFA.
 
-> In a post-queue setup, deferring a mail will delete the mail, silently. Because
+> **Note:** In a post-queue setup, deferring a mail will delete the mail, silently. Because
 > ElephantMFA has already accepted the mail, it cannot return the error code back
 > to the sender.
 
