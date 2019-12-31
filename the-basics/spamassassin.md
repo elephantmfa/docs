@@ -29,7 +29,7 @@ namespace App\Mail\Filters\Data;
 
 use Elephant\Contracts\Filter;
 use Elephant\Contracts\Mail\Mail;
-use Elephant\Filtering\Exception\QuarantineException;
+use Elephant\Filtering\Actions\Quarantine;
 use Elephant\Filtering\SpamAssassin as SpamAssassinClient;
 use Elephant\Foundation\Application;
 
@@ -68,7 +68,8 @@ class SpamAssassin implements Filter
 
         // Generate headers
         $xSpamStatusHeader = "$spamStatus score=$totalScore tests=$tests";
-        $xSpamCheckerVersion = "SpamAssassin v{$results['version']}; ElephantMFA v" . Application::VERSION;
+        $xSpamCheckerVersion = "SpamAssassin v{$results['version']}; " .
+            "ElephantMFA v" . Application::VERSION;
 
         // Log the headers to be added.
         info("X-Spam-Status: $xSpamStatusHeader");
@@ -80,7 +81,7 @@ class SpamAssassin implements Filter
 
         // Quarantine if considered Spam.
         if ($totalScore > 5) {
-            throw new QuarantineException();
+            throw new Quarantine();
         }
 
         return $next($email);

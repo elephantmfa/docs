@@ -27,7 +27,7 @@ namespace App\Mail\Filters\Data;
 
 use Elephant\Contracts\Filter;
 use Elephant\Contracts\Mail\Mail;
-use Elephant\Filtering\Exception\QuarantineException;
+use Elephant\Filtering\Actions\Quarantine;
 use Elephant\Filtering\Scanners\ClamAV as ClamAVClient;
 
 class ClamAV implements Filter
@@ -81,7 +81,7 @@ class ClamAV implements Filter
 
         // Quarantine if infected.
         if ($infected) {
-            throw new QuarantineException();
+            throw new Quarantine();
         }
 
         return $next($email);
