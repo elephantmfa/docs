@@ -208,6 +208,7 @@ public function filter(Mail $email, $next)
     if ($forSomeReasonMailIsBlocked) {
         throw new Reject('5.0.0 Address not allowed', 550);
     }
+    
     return $next($email);
 }
 ```
