@@ -79,9 +79,18 @@ a {
 }
 
 blockquote {
-    border-left:3px solid #f2ca7e;
-    padding:0 0 0 20px;
-    font-style:italic;
+    border-left: 3px solid #f2ca7e;
+    padding: 5px 0 5px 20px;
+    font-style: italic;
+    background-color: #31255922;
+    margin: 0;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #928fd922;
+    }
+    p {
+        margin: 0;
+    }
 }
 
 code, pre {
