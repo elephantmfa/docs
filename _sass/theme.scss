@@ -141,6 +141,10 @@ section {
     padding: 3em;
     border: 1px solid #312559;
     margin-bottom: 50px;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #312559;
+    }
 }
 
 small {
