@@ -7,6 +7,7 @@
   - [Installing Elephant](#installing-elephant)
   - [Configuration](#configuration)
 - [Server Configuration](#server-configuration)
+  - [Routing Postfix to and from Elephant](#routing-postfix-to-and-from-elephant)
 
 ## Installation
 
@@ -61,6 +62,35 @@ Directories within the storage and the bootstrap/cache directories should be
 writable by Elephant, or Elephant won't run.
 
 ## Server Configuration
+
+### Routing Postfix to and from Elephant
+
+It is recommended to have Postfix (or similar MTA) to handle external mail.
+In the current version of Elephant, it is not recommended to have Elephant be
+the external SMTP relay, as many necessary inter-server communication features
+aren't implemented. As such, Postfix will handle external connections for mail.
+
+To route mail from Postfix to Elephant, add a content-filter option either
+globally, or (more recommended) in `master.cf` and forward the inbound mail
+(port 25) to an inbound filtering port in Elephant, and the outbound mail (port
+587) to an outbound filtering port in Elephant. Assuming these ports are named
+properly, you can easily set it up to filter mail differently between inbound
+and outbound mail.
+
+Additionally, it is recommended to have an ingress port in Postfix to route the
+mail back to. While you can have your routing logic in Elephant, if you need to
+link to any other services, linking through Postfix would be recommended.
+Create a port in `master.cf` like so:
+
+```
+10030      inet  n       -       n       -       -       smtpd
+    -o additional_configuration_here...
+```
+
+Then configure Elephant to route to that port.
+
+For more complex configuration of Postfix, please review the Postfix
+documentation.
 
 [1]: https://laravel.com/docs/6.x/installation#server-requirements
 [ext-event]: https://pecl.php.net/package/event
