@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+- [Installation](#installation)
   - [Server Requirements](#server-requirements)
   - [Installing Elephant](#installing-elephant)
   - [Configuration](#configuration)
