@@ -8,7 +8,7 @@
   - [Timings](#timings)
 - [Functions for Accessing Extra Information](#functions-for-accessing-extra-information)
 
-## Introduction
+## Introduction
 
 Sometimes it is very beneficial to be able to carry information around about a
 mail message, whether this is spam tests, time taken to do certain operations,
