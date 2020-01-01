@@ -23,6 +23,9 @@
             {% endif %}
             <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
             <p>{{ site.description | default: site.github.project_tagline }}</p>
+            <a href="https://packagist.org/packages/elephantmfa/framework"><img alt="Total Downloads" src="https://poser.pugx.org/elephantmfa/framework/downloads"></a>
+            <a href="https://packagist.org/packages/elephantmfa/framework"><img alt="Latest Stable Version" src="https://poser.pugx.org/elephantmfa/framework/version"></a>
+            <a href="https://packagist.org/packages/elephantmfa/framework"><img alt="License" src="https://poser.pugx.org/elephantmfa/framework/license"></a>
             <nav class="nav">
                 <ul x-data="{ section: '{{ page.url | remove_first: '/' | split: '/' | first }}' }">
                     <li><a href="{{ "/" | absolute_url }}">Home</a></li>
