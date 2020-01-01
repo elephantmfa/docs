@@ -25,6 +25,7 @@ Here comes ElephantMFA, a highly extensible *framework* written in PHP using Rea
   - [Deployment](getting-started/deployment.md)
 - The Basics
   - [Filters](the-basics/filters.md)
+  - [Carrying Information](the-basics/carrying-information.md)
   - [SpamAssassin](the-basics/spamassassin.md)
   - [ClamAV](the-basics/clamav.md)
   - [Pattern Matching](the-basics/pattern-matching.md)
@@ -39,4 +40,4 @@ Thank you for considering contributing to the ElephantMFA framework!
 
 ## License
 
-The ElephantMFA framework is open-sourced software licensed under the [MIT license](LICENSE.md).
+The ElephantMFA framework is open-sourced software licensed under the [MIT license](https://github.com/elephantmfa/framework/blob/master/LICENSE).

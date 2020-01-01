@@ -20,6 +20,8 @@ sections:
     pages:
       - title: Filters
         url: filters
+      - title: Carrying Information
+        url: carrying-information
       - title: SpamAssassin
         url: spamassassin
       - title: ClamAV
