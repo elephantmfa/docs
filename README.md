@@ -18,7 +18,7 @@ Here comes ElephantMFA, a highly extensible *framework* written in PHP using Rea
 ## Table of Contents
 > **Note:** It's an important thing to note, that a lot of documentation will defer to or reference Laravel's excellent documentation as ElephantMFA utilizes their components.
 
-- [Home](/)
+- [Home](README.md)
 - Getting Started
   - [Installation](getting-started/installation.md)
   - [Directory Structure](getting-started/directory-structure.md)
