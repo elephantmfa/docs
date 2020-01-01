@@ -50,7 +50,7 @@ match.
 ### Regex example usage
 
 ```php
-use Elephant\Helpers\Regex;
+use Elephant\Helpers\Matchers\Regex;
 
 $string = 'This is a spammy string.'
 $arrayOfStrings = [
@@ -101,7 +101,7 @@ are always case insensitive. It contains all of the same methods as described in
 ### Wildcard example usage
 
 ```php
-use Elephant\Helpers\Wildcard;
+use Elephant\Helpers\Matchers\Wildcard;
 
 $string = 'This is a spammy string.'
 $arrayOfStrings = [
