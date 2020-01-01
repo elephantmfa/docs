@@ -200,7 +200,7 @@ stop allowing more commands in regards to the email. This would be used if you
 block email addresses, in the `RCPT TO` step, you have a filter that rejects it
 before even getting to the data step, thus preventing the processing required.
 
-To reject, it is as simple as throwing a `Reject`:
+To reject, it is as simple as throwing a `Reject` action:
 
 ```php
 public function filter(Mail $email, $next)
@@ -231,7 +231,7 @@ stop allowing more commands in regards to the email. This would be used to
 implement a gray-listing system, temporarily blocking mail, forcing the sending
 server to try again later (usually after 5 minutes).
 
-To defer, it is as simple as throwing a `Defer`:
+To defer, it is as simple as throwing a `Defer` action:
 
 ```php
 public function filter(Mail $email, $next)
@@ -313,7 +313,7 @@ time. This can be used to prevent spammers who attempt to waste processing power
 by consistently connecting and sending mail to ElephantMFA. For example,
 dropping connections from a specific IP on the connect step.
 
-To drop a connection, it is as simple as throwing a `Drop`:
+To drop a connection, it is as simple as throwing a `Drop` action:
 
 ```php
 public function filter(Mail $email, $next)
