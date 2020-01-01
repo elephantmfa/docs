@@ -31,7 +31,7 @@
                         <span x-on:click="section = '{{ section.prefix }}'">{{ section.title }}</span>
                         <ul x-show="section == '{{ section.prefix }}'">
                             {% for page in section.pages %}
-                            <li><a href="/{{ section.prefix }}/{{ page.url }}.html">{{ page.title }}</a></li>
+                            <li><a href="/{{ section.prefix }}/{{ page.url }}">{{ page.title }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
