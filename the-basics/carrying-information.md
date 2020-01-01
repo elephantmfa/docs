@@ -38,7 +38,7 @@ so no other type (such as a string or bool) should be stored in this map.
 > **Note:** The timings for the current step isn't available in a filter, as
 > the timing is stored after all filters run. There is an extra method declared
 > in the Mail kernel that runs after the QUEUED step (or the DATA step if queue
-> is skipped) called `MailLog` that you can implement, as if it were just
+> is skipped) called `mailLog` that you can implement, as if it were just
 > another filter. This is intentionally used for logging data about the message.
 
 ## Functions for Accessing Extra Information
