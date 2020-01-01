@@ -36,4 +36,4 @@ The mail directory contains a `Filters` directory as well as a Kernel for
 handling SMTP Mail processing. See the [filtering] documentation for more.
 
 [laravel docs]: https://laravel.com/docs/6.x/structure#the-root-app-directory
-[filtering]: /the-basics/filtering.md
+[filtering]: /the-basics/filters.md
