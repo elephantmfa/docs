@@ -191,6 +191,10 @@
 }
 .highlight .nt {
   color: #000080;
+
+  @media (prefers-color-scheme: dark) {
+    color: #d9a3bc;
+  }
 }
 .highlight .vc {
   color: #008080;
