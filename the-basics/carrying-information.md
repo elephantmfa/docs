@@ -1,4 +1,4 @@
-# Carrying Information
+# Carrying Information
 
 ## Table of Contents
 
